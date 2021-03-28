@@ -29,7 +29,7 @@ function Home() {
   }
   
   return (<div className="App-body">
-    <p className="Para"> Envoyez nous des images <Link to="/formulaire">ici</Link></p>
+    <p className="Para"> Une image tous les jours à 10h. Envoyez nous des images <Link to="/formulaire">ici</Link></p>
     <div>
       <p className="Header-img">
         <d> {Images[indice].date} </d>
