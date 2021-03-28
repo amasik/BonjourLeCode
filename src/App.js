@@ -39,6 +39,7 @@ function Home() {
       </p>
     
       <img src={Images[indice].img} className="App-logo"/>
+      <h> Proposé par {Images[indice].pseudo}</h>
       <a className="App-header" href="/apropos">
         A Propos
       </a>
