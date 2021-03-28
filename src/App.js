@@ -1,6 +1,7 @@
 
 import './App.css';
 import NameForm from'./formulaire/Formulaire.js'
+import APropos from'./propos/APropos.js'
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Images from './img/Image.js'
@@ -14,7 +15,8 @@ const App = () => (
       </a>
       <Route exact path="/" component={Home} />
       <Route path="/formulaire" component={NameForm} />
-
+      <Route path="/apropos" component={APropos} />
+      
     </div>
   </Router>
 );
@@ -25,6 +27,7 @@ function Home() {
   function handleClick(choix){
     choix ? indice ++ : indice --;
   }
+  
   return (<div className="App-body">
     <p className="Para"> Envoyez nous des images <Link to="/formulaire">ici</Link></p>
     <div>
@@ -36,8 +39,11 @@ function Home() {
       </p>
     
       <img src={Images[indice].img} className="App-logo"/>
-    
+      <a className="App-header" href="/apropos">
+        A Propos
+      </a>
     </div>
+    
   </div>)
 };
 
