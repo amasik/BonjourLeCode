@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
+import './App.css';
+import NameForm from'./formulaire/Formulaire.js'
+import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Images from './img/Image.js'
+
+
+const App = () => (
+  <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <a className="App-header" href="/">
+        Bonjour le Code
+      </a>
+      <Route exact path="/" component={Home} />
+      <Route path="/formulaire" component={NameForm} />
+
     </div>
-  );
-}
+  </Router>
+);
+
+function Home() {
+  
+  var indice = 0;
+  function handleClick(choix){
+    choix ? indice ++ : indice --;
+  }
+  return (<div className="App-body">
+    <p className="Para"> Envoyez nous des images <Link to="/formulaire">ici</Link></p>
+    <div>
+      <p className="Header-img">
+        <d> {Images[indice].date} </d>
+        {indice == 0 ?<h> </h> :<button onClick={handleClick(0)}> image précédente </button>}
+        {Object.keys(Images).length == (indice + 1) ?<h>   </h>:<button onClick={handleClick(1)}> image suivante </button>}
+
+      </p>
+    
+      <img src={Images[indice].img} className="App-logo"/>
+    
+    </div>
+  </div>)
+};
 
 export default App;
